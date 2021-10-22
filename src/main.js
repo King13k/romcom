@@ -6,6 +6,7 @@ var tagLine = document.querySelector ('.tagline')
 var descriptor1 = document.querySelector('.tagline-1')
 var descriptor2 = document.querySelector('.tagline-2')
 var randomButton = document.querySelector('.random-cover-button')
+var makeCoverButton = document.querySelector('.make-new-button')
 
 // We've provided a few variables below
 var savedCovers = [
@@ -26,7 +27,10 @@ randomButton.addEventListener('click', function() {
   randomizeTitles()
   randomizeTagLine1()
   randomizeTagLine2()
-})
+});
+makeCoverButton.addEventListener('click', function() {
+  toggle()
+}
 // Create your event handlers and other functions here 👇
 function randomizeCovers() {
   coverImgSrc.src = covers[getRandomIndex(covers)]
@@ -39,6 +43,9 @@ function randomizeTagLine1() {
 }
 function randomizeTagLine2() {
   descriptor2.innerText = descriptors[getRandomIndex(descriptors)]
+}
+function toggle() {
+  if (document.querySelector('.make-new-button').value == 'OFF')
 }
 
 // We've provided one function to get you started
