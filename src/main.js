@@ -12,6 +12,7 @@ var formView = document.querySelector('.form-view')
 var homeButton = document.querySelector('.home-button')
 var viewCoversButton = document.querySelector('.view-saved-button')
 var savedView = document.querySelector('.saved-view')
+var coverInput = document.querySelector()
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
