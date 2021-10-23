@@ -10,7 +10,7 @@ var makeCoverButton = document.querySelector('.make-new-button')
 var saveCover = document.querySelector('.save-cover-button')
 var homeView = document.querySelector('.home-view')
 var formView = document.querySelector('.form-view')
-
+var homeButton = document.querySelector('.home-button')
 
 // We've provided a few variables below
 var savedCovers = [
@@ -40,6 +40,7 @@ function showForm() {
   formView.classList.remove('hidden')
   saveCover.classList.add('hidden')
   randomButton.classList.add('hidden')
+  homeButton.classList.remove('hidden')
 }
 // We've provided one function to get you started
 function getRandomIndex(array) {
