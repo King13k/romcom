@@ -36,7 +36,7 @@ randomButton.addEventListener('click', generateBook)
 makeCoverButton.addEventListener('click', showForm)
 viewCoversButton.addEventListener('click', showSavedCovers)
 homeButton.addEventListener('click', showHome)
-newBookButton.addEventListener('submit',createBook)
+newBookButton.addEventListener('click',createBook)
 
 // Create your event handlers and other functions here 👇
 function generateBook() {
@@ -77,7 +77,7 @@ function submitFormInputs() {
   descriptors.push(descriptor1Input.value)
   descriptors.push(descriptor2Input.value)
 }
-function createBook(event){
+function createBook(){
   event.preventDefault()
   coverSrc.src = coverInput.value
   coverTitle.innerText = titleInput.value
@@ -86,10 +86,8 @@ function createBook(event){
   currentCover = new Cover (coverSrc.src, coverTitle.innerText, descriptorOne.innerText, descriptorTwo.innerText)
   submitFormInputs()
   showHome()
-  form.reset()
-
-
 }
+
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
