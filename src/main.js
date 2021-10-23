@@ -17,31 +17,18 @@ var currentCover = new Cover(coverImgSrc, title, descriptor1, descriptor2)
 
 
 // Add your event listeners here👇
-window.addEventListener('load', function() {
-  randomizeCovers()
-  randomizeTitles()
-  randomizeTagLine1()
-  randomizeTagLine2()
-});
-randomButton.addEventListener('click', function() {
-  randomizeCovers()
-  randomizeTitles()
-  randomizeTagLine1()
-  randomizeTagLine2()
-  toggleHome()
-})
+window.addEventListener('load', generateBook)
+
+randomButton.addEventListener('click', generateBook)
+
+
 // Create your event handlers and other functions here 👇
-function randomizeCovers() {
-  coverImgSrc.src = covers[getRandomIndex(covers)]
-}
-function randomizeTitles() {
-  title.innerText = titles[getRandomIndex(titles)]
-}
-function randomizeTagLine1() {
-  descriptor1.innerText = descriptors[getRandomIndex(descriptors)]
-}
-function randomizeTagLine2() {
-  descriptor2.innerText = descriptors[getRandomIndex(descriptors)]
+function generateBook() {
+  newCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptor1[getRandomIndex(descriptors)], descriptor2[getRandomIndex(descriptors)])
+  coverImgSrc.src = newCover.cover
+  title.innerText = newCover.title
+  descriptor1.innerText = newCover.tagline1
+  descriptor2.innerText = newCover.tagline2
 }
 function toggleHome() {
 //   if (homeView.contains('view') {
