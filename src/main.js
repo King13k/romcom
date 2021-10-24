@@ -37,6 +37,7 @@ makeCoverButton.addEventListener('click', showForm)
 viewCoversButton.addEventListener('click', showSavedCovers)
 homeButton.addEventListener('click', showHome)
 newBookButton.addEventListener('click',createBook)
+saveCoverButton.addEventListener('click',saveCover)
 
 // Create your event handlers and other functions here 👇
 function generateBook() {
@@ -77,7 +78,7 @@ function submitFormInputs() {
   descriptors.push(descriptor1Input.value)
   descriptors.push(descriptor2Input.value)
 }
-function createBook(){
+function createBook() {
   event.preventDefault()
   coverSrc.src = coverInput.value
   coverTitle.innerText = titleInput.value
@@ -86,6 +87,10 @@ function createBook(){
   currentCover = new Cover (coverSrc.src, coverTitle.innerText, descriptorOne.innerText, descriptorTwo.innerText)
   submitFormInputs()
   showHome()
+}
+function saveCover() {
+  displayBook()
+  savedCovers.push(currentCover)
 }
 
 // We've provided one function to get you started
