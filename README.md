@@ -1,13 +1,34 @@
 # RomCom
 
-A boilerplate repo. 
+An app designed to generate romantic book covers.  
+You can randomly choose or create your own cover.
+Then save and view your desired covers.
 
-## Set Up
-1. ONE teammate: fork this boilerplate repository 
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. View the project in the browser by running open index.html in your terminal
-6. Add all project partners and your assigned instructor as collaborators on the repository
+Make sure to use a URL image address in the cover field on the form.
+To delete covers from your saved covers view, simply double click.
+
+Check it out it out [here!](https://king13k.github.io/romcom/)
+
+This is our first paired project in Module one.
+
+## Contributors
+Turing School of Software & Design Frontend Students
+* Kevin King
+* Devon Wigle
+
+## Technologies Used
+* Atom
+* Terminal
+* Github
+* Chrome
+* Languages
+  * HTML
+  * css
+  * JavaScript
+
+## Planned Additions
+* data validation and error handling in form
+* creating a modal for larger cover viewing
+* Drag-and-drop functionality for saved cover ordering
 
 The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
