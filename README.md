@@ -9,6 +9,8 @@ To delete covers from your saved covers view, simply double click.
 
 Check it out it out [here!](https://king13k.github.io/romcom/)
 
+This is our first paired project in Module one.
+
 ## Contributors
 Turing School of Software & Design Frontend Students
 * Kevin King
