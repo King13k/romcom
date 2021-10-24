@@ -69,11 +69,12 @@ function showSavedCovers() {
   showMiniCovers()
 }
 function showHome() {
-  homeView.classList.remove('hidden')
-  savedView.classList.add('hidden')
-  formView.classList.add('hidden')
-  randomButton.classList.remove('hidden')
-  saveCoverButton.classList.remove('hidden')
+  hide(savedView)
+  hide(formView)
+  show(homeView)
+  show(saveCoverButton)
+  show(randomButton)
+  show(homeButton)
 }
 function submitFormInputs() {
   covers.push(coverInput.value)
