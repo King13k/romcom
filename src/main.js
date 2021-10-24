@@ -23,6 +23,7 @@ var descriptor1Input = document.querySelector('.user-desc1')
 var descriptor2Input = document.querySelector('.user-desc2')
 var mainCover = document.querySelector('.main-cover')
 var form = document.querySelector('form')
+var coverSection = document.querySelector('.saved-covers-section')
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -37,7 +38,8 @@ makeCoverButton.addEventListener('click', showForm)
 viewCoversButton.addEventListener('click', showSavedCovers)
 homeButton.addEventListener('click', showHome)
 newBookButton.addEventListener('click',createBook)
-
+saveCoverButton.addEventListener('click',saveCover)
+coverSection.addEventListener('dblclick', deleteCover)
 // Create your event handlers and other functions here 👇
 function generateBook() {
   currentCover = new Cover(covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)])
@@ -48,7 +50,6 @@ function displayBook() {
   coverTitle.innerText = currentCover.title
   descriptorOne.innerText = currentCover.tagline1
   descriptorTwo.innerText = currentCover.tagline2
-
 }
 function showForm() {
   homeView.classList.add('hidden')
@@ -57,12 +58,14 @@ function showForm() {
   randomButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
 }
+
 function showSavedCovers() {
   homeView.classList.add('hidden')
   savedView.classList.remove('hidden')
   randomButton.classList.add('hidden')
   saveCoverButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
+  showMiniCovers()
 }
 function showHome() {
   homeView.classList.remove('hidden')
@@ -77,7 +80,7 @@ function submitFormInputs() {
   descriptors.push(descriptor1Input.value)
   descriptors.push(descriptor2Input.value)
 }
-function createBook(){
+function createBook() {
   event.preventDefault()
   coverSrc.src = coverInput.value
   coverTitle.innerText = titleInput.value
@@ -86,6 +89,34 @@ function createBook(){
   currentCover = new Cover (coverSrc.src, coverTitle.innerText, descriptorOne.innerText, descriptorTwo.innerText)
   submitFormInputs()
   showHome()
+}
+function saveCover() {
+  displayBook()
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover)
+  }
+}
+function showMiniCovers() {
+  coverSection.innerHTML = ''
+  for ( var i = 0; i < savedCovers.length; i++) {
+    coverSection.innerHTML +=
+    `<section class="mini-cover" id=${savedCovers[i].id}>
+      <img class="cover-image" src=${savedCovers[i].cover}>
+      <h2 class="cover-title">${savedCovers[i].title}</h2>
+      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+    </section>`
+  }
+}
+function deleteCover() {
+  event.preventDefault()
+  var id = event.target.parentNode.id
+  for ( var i = 0; i < savedCovers.length; i++) {
+    console.log("length", savedCovers)
+    if (savedCovers[i].id == id) {
+      savedCovers.splice(i, 1)
+    }
+  }
+  showMiniCovers()
 }
 
 // We've provided one function to get you started
