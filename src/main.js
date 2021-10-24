@@ -52,11 +52,11 @@ function displayBook() {
   descriptorTwo.innerText = currentCover.tagline2
 }
 function showForm() {
-  homeView.classList.add('hidden')
-  formView.classList.remove('hidden')
-  saveCoverButton.classList.add('hidden')
-  randomButton.classList.add('hidden')
-  homeButton.classList.remove('hidden')
+  hide(homeView)
+  hide(saveCoverButton)
+  hide(randomButton)
+  show(formView)
+  show(homeButton)
 }
 
 function showSavedCovers() {
@@ -122,4 +122,10 @@ function deleteCover() {
 // We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
+}
+function show(element) {
+  element.classList.remove('hidden');
+};
+function hide(element) {
+  element.classList.add('hidden');
 }
