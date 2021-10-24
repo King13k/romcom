@@ -58,12 +58,18 @@ function showForm() {
   randomButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
 }
+//invoke the show saved covers
+//take the savedCovers array and show on saved covers page.
 function showSavedCovers() {
   homeView.classList.add('hidden')
   savedView.classList.remove('hidden')
   randomButton.classList.add('hidden')
   saveCoverButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
+  saveCover()
+  for (var i = 0; i < savedCovers.length; i++) {
+    return savedCovers[i]
+  }
 }
 function showHome() {
   homeView.classList.remove('hidden')
@@ -95,6 +101,18 @@ function saveCover() {
       savedCovers.push(currentCover)
     }
   }
+}
+function viewSavedCover() {
+  for (var i = 0; i < savedCovers.length; i++) {
+    return savedCovers[i]
+  }
+}
+function addHtml() {
+`<img class="cover-image" src=${coverSrc}>
+  <h2 class="cover-title">${coverTitle}</h2>
+  <h3 class="tagline">A tale of <span class="tagline-1">${descriptorOne}</span> and <span class="tagline-2">${descriptorTwo}</span></h3>
+  <img class="price-tag" src="./assets/price.png">
+  <img class="overlay" src="./assets/overlay.png">`
 }
 
 // We've provided one function to get you started
