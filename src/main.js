@@ -49,7 +49,6 @@ function displayBook() {
   coverTitle.innerText = currentCover.title
   descriptorOne.innerText = currentCover.tagline1
   descriptorTwo.innerText = currentCover.tagline2
-
 }
 function showForm() {
   homeView.classList.add('hidden')
@@ -67,9 +66,6 @@ function showSavedCovers() {
   saveCoverButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
   saveCover()
-  for (var i = 0; i < savedCovers.length; i++) {
-    return savedCovers[i]
-  }
 }
 function showHome() {
   homeView.classList.remove('hidden')
@@ -97,22 +93,24 @@ function createBook() {
 function saveCover() {
   displayBook()
   for(var i = 0; i < savedCovers.length; i++) {
-    if (!savedCovers.includes(currentCover)) {
+    if (!savedCovers.includes()) {
       savedCovers.push(currentCover)
     }
   }
+  miniCovers()
 }
-function viewSavedCover() {
-  for (var i = 0; i < savedCovers.length; i++) {
-    return savedCovers[i]
+function miniCovers() {
+  savedView.innerHTML = ''
+  for ( var i = 0; i < savedCovers.length; i++) {
+    savedView.innerHTML +=
+    `<section class="mini-cover" id=${savedCovers[i].id}
+    <img class="cover-image" src=${savedCovers[i].cover}>
+    <h2 class="cover-title">${savedCovers[i].title}</h2>
+    <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+    </section>`
   }
-}
-function addHtml() {
-`<img class="cover-image" src=${coverSrc}>
-  <h2 class="cover-title">${coverTitle}</h2>
-  <h3 class="tagline">A tale of <span class="tagline-1">${descriptorOne}</span> and <span class="tagline-2">${descriptorTwo}</span></h3>
-  <img class="price-tag" src="./assets/price.png">
-  <img class="overlay" src="./assets/overlay.png">`
 }
 
 // We've provided one function to get you started
