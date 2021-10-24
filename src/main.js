@@ -60,11 +60,12 @@ function showForm() {
 }
 
 function showSavedCovers() {
-  homeView.classList.add('hidden')
-  savedView.classList.remove('hidden')
-  randomButton.classList.add('hidden')
-  saveCoverButton.classList.add('hidden')
-  homeButton.classList.remove('hidden')
+  hide(homeView)
+  hide(saveCoverButton)
+  hide(randomButton)
+  hide(formView)
+  show(homeButton)
+  show(savedView)
   showMiniCovers()
 }
 function showHome() {
