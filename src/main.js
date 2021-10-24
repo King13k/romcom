@@ -49,7 +49,6 @@ function displayBook() {
   coverTitle.innerText = currentCover.title
   descriptorOne.innerText = currentCover.tagline1
   descriptorTwo.innerText = currentCover.tagline2
-
 }
 function showForm() {
   homeView.classList.add('hidden')
@@ -58,18 +57,14 @@ function showForm() {
   randomButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
 }
-//invoke the show saved covers
-//take the savedCovers array and show on saved covers page.
+
 function showSavedCovers() {
   homeView.classList.add('hidden')
   savedView.classList.remove('hidden')
   randomButton.classList.add('hidden')
   saveCoverButton.classList.add('hidden')
   homeButton.classList.remove('hidden')
-  saveCover()
-  for (var i = 0; i < savedCovers.length; i++) {
-    return savedCovers[i]
-  }
+  miniCovers()
 }
 function showHome() {
   homeView.classList.remove('hidden')
@@ -96,26 +91,21 @@ function createBook() {
 }
 function saveCover() {
   displayBook()
-  for(var i = 0; i < savedCovers.length; i++) {
-    if (!savedCovers.includes(currentCover)) {
-      savedCovers.push(currentCover)
-    }
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover)
   }
-  miniCovers()
 }
 function miniCovers() {
   savedView.innerHTML = ''
   for ( var i = 0; i < savedCovers.length; i++) {
     savedView.innerHTML +=
-    `<section class="mini-cover">
-    <img class="cover-image" id=${savedCovers[i].id} src=${savedCovers[i].cover}>
+    `<section class="mini-cover" id=${savedCovers[i].id}>
+    <img class="cover-image" src=${savedCovers[i].cover}>
     <h2 class="cover-title">${savedCovers[i].title}</h2>
     <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
     </section>`
   }
 }
-// <img class="price-tag" src="./assets/price.png">
-// <img class="overlay" src="./assets/overlay.png">
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
