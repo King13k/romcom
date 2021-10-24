@@ -90,7 +90,11 @@ function createBook() {
 }
 function saveCover() {
   displayBook()
-  savedCovers.push(currentCover)
+  for(var i = 0; i < savedCovers.length; i++) {
+    if (!savedCovers.includes(currentCover)) {
+      savedCovers.push(currentCover)
+    }
+  }
 }
 
 // We've provided one function to get you started
